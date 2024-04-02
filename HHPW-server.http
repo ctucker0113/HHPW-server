@@ -1,0 +1,6 @@
+@HHPW_server_HostAddress = http://localhost:5126
+
+GET {{HHPW_server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
