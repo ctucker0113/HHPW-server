@@ -24,7 +24,31 @@ namespace HHPW_server.API
                 return Results.Ok(userID);
             });
 
+            // Check User
+            app.MapGet("/checkuser/{uid}", (HHPWDbContext db, string uid) =>
+            {
+                var user = db.Users.Where(x => x.UID == uid).ToList();
+
+                if (uid == null)
+                {
+                    return Results.NotFound();
+                }
+                else
+                {
+                    return Results.Ok(user);
+                }
+            });
+
+
+
+
+
+
+
+
+
+
+
         }
     }
 }
-
