@@ -9,6 +9,7 @@ public class HHPWDbContext : DbContext
     public DbSet<User> Users { get; set; }
     public DbSet<Order> Orders { get; set; }
     public DbSet<OrderType> OrderTypes { get; set; }
+    public DbSet<OrderItem> OrderItems { get; set; }
 
     public HHPWDbContext(DbContextOptions<HHPWDbContext> context) : base(context)
     {
@@ -153,12 +154,41 @@ public class HHPWDbContext : DbContext
             UID = "sampleName2",
             Name = "Albus Dumbledore"
         }
-
-        
-
+       });
 
 
-
+        modelBuilder.Entity<OrderItem>().HasData(new OrderItem[]
+           {
+        new OrderItem {
+            ID = 1,
+            OrderID = 1,
+            ItemID = 1,
+            Quantity = 2
+        },
+        new OrderItem {
+            ID = 2,
+            OrderID = 1,  // Same order, different item
+            ItemID = 2,
+            Quantity = 1
+        },
+        new OrderItem {
+            ID = 3,
+            OrderID = 2,  // Another order
+            ItemID = 3,
+            Quantity = 3
+        },
+        new OrderItem {
+            ID = 4,
+            OrderID = 2,
+            ItemID = 4,
+            Quantity = 1
+        },
+        new OrderItem {
+            ID = 5,
+            OrderID = 3,
+            ItemID = 5,
+            Quantity = 2
+        }
 
        });
 
