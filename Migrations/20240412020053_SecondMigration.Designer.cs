@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -10,9 +11,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace HHPW_server.Migrations
 {
     [DbContext(typeof(HHPWDbContext))]
-    partial class HHPWDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240412020053_SecondMigration")]
+    partial class SecondMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -195,9 +197,6 @@ namespace HHPW_server.Migrations
                     b.Property<int>("OrderID")
                         .HasColumnType("integer");
 
-                    b.Property<int>("Quantity")
-                        .HasColumnType("integer");
-
                     b.HasKey("ID");
 
                     b.ToTable("OrderItems");
@@ -207,36 +206,31 @@ namespace HHPW_server.Migrations
                         {
                             ID = 1,
                             ItemID = 1,
-                            OrderID = 1,
-                            Quantity = 2
+                            OrderID = 1
                         },
                         new
                         {
                             ID = 2,
                             ItemID = 2,
-                            OrderID = 1,
-                            Quantity = 1
+                            OrderID = 1
                         },
                         new
                         {
                             ID = 3,
                             ItemID = 3,
-                            OrderID = 2,
-                            Quantity = 3
+                            OrderID = 2
                         },
                         new
                         {
                             ID = 4,
                             ItemID = 4,
-                            OrderID = 2,
-                            Quantity = 1
+                            OrderID = 2
                         },
                         new
                         {
                             ID = 5,
                             ItemID = 5,
-                            OrderID = 3,
-                            Quantity = 2
+                            OrderID = 3
                         });
                 });
 
